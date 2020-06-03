@@ -1,0 +1,45 @@
+body {
+    font-size: 120%;
+}
+
+.scores {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.timer {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+a {
+    color: darkblue;
+    text-decoration: none;
+    transition-duration: 0.1s;
+}
+a:hover {
+    color: #3737cc
+}
+
+button {
+    color:white;
+    background-color:  darkblue;
+    cursor: pointer;
+    font-size: 100%; 
+    border:0;
+    border-radius: 5px;
+    padding:4px;
+    margin: 5px;
+    transition: background-color 0.5s;
+}
+
+button:hover {
+    background-color: #3737cc
+}
+
+.wrapper {
+    margin: 100px auto 0 auto; 
+    max-width: 600px;
+}
