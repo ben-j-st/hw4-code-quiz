@@ -7,21 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- a link to the high scores page -->
-    <section class="scores">
-       <a href="#">View Highscores</a>
-    </section>
-    <!-- a section to hold the timer -->
-    <section class="timer">
-        Time: <span id="time">0</span>
-    </section>
 
     <main class="wrapper">
         <h1>Highscores</h1>
         <ol id="ol-scores"></ol>
 
         <!--a tag holds the link for button to return to index/ home page -->
-        <a href="#">
+        <a href="index.html">
             <button>
                 Go Back
             </button>
@@ -30,10 +22,10 @@
         <button id="clear">
             Clear Highscores
         </button>
-
+        <!-- div to be moved to the index.html -- was used for testing local storage -->
         <div class="test-submit">
         <p>
-            Enter initials: <input type="text" id="initials" max="3" />
+            Enter initials: <input type="text" id="initials" maxlength="3" />
             <button id="submit">Submit</button>
           </p>
         </div>
