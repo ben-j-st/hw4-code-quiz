@@ -4,14 +4,14 @@ body {
 
 .scores {
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 10px;
+    left: 10px;
 }
 
 .timer {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
 }
 
 a {
@@ -22,6 +22,20 @@ a {
 a:hover {
     color: #3737cc
 }
+
+ol {
+    padding-left: 0px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+li {
+    padding: 5px;
+}
+
+li:nth-child(odd) {
+    background-color: #f3edfc;
+  }
 
 button {
     color:white;
@@ -43,3 +57,11 @@ button:hover {
     margin: 100px auto 0 auto; 
     max-width: 600px;
 }
+
+.hide {
+    display: none;
+  }
+  
+  .start {
+    text-align: center;
+  }
