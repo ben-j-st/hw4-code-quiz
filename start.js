@@ -68,7 +68,8 @@ var questionClick = function() {
         // penalise time and score
         time = time - 10;
         score = score - 5;
-
+        scoreEl.textContent = score;
+        
         if ( time < 0) {
             time = 0;
         }
