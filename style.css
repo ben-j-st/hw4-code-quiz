@@ -47,6 +47,7 @@ li:nth-child(odd) {
 
 button {
     color:white;
+    display: inline-block;
     background-color:  darkblue;
     cursor: pointer;
     font-size: 100%; 
@@ -59,6 +60,10 @@ button {
 
 button:hover {
     background-color: #3737cc
+}
+
+.choices button {
+    display: block;
 }
 
 .wrapper {
