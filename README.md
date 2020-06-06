@@ -25,4 +25,4 @@ Users can score a maximum of 100 points if all answers are correct and score a m
 ## Links And Images
 
 https://ben-j-st.github.io/hw4-code-quiz/
- ![Website preview](assets/images/coding-quiz.jpg)
+ ![Website preview](assets/images/coding-quiz.JPG)
