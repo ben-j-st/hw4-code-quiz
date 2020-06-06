@@ -7,7 +7,7 @@
     <title>Programming Quiz</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -44,6 +44,11 @@
             <div id="choices" class="choices"></div>
         </section>
 
+        <!-- an alert box for displaying if correct or incorrect -->
+        <div class="alert alert-danger hide" role="alert">
+            A simple danger alert—check it out!
+        </div>
+
 
         <!-- hidden screen for the end screen after the quiz to submit initials with the score -->
         <section id="end-screen" class="hide">
@@ -60,8 +65,8 @@
 
     </main>
 
-    <script src="questions.js"></script>
-    <script src="start.js"></script>
+    <script src="./assets/javascript/questions.js"></script>
+    <script src="./assets/javascript/start.js"></script>
 </body>
 
 </html>
