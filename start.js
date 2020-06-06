@@ -34,8 +34,6 @@ var startQuiz = function() {
 
     // run function to get questions
     getQuestions();
-
-    console.log(time)
 }
 
 var getQuestions = function() {
@@ -67,8 +65,9 @@ var getQuestions = function() {
 var questionClick = function() {
     // check if user guessed wrong
     if (this.value !== questions[currentQuestionIndex].answer) {
-        time-= 10;
-        score -= 5;
+        // penalise time and score
+        time = time - 10;
+        score = score - 5;
 
         if ( time < 0) {
             time = 0;
@@ -95,6 +94,7 @@ var questionClick = function() {
     // run check to see if run out of questions
     if (currentQuestionIndex === questions.length) {
         quizEnd();
+        time = 0;
     } else {
         getQuestions();
     }
@@ -106,6 +106,7 @@ var quizEnd = function() {
 
     // show end screen
     var endScreenEl = document.getElementById("end-screen");
+    endScreenEl.removeAttribute("class");
 
     //show final score
     var finalScoreEl = document.getElementById('final-score');
