@@ -22,10 +22,11 @@ var printHighScore = function() {
 }
 
 var clearHighScores = function() {
-    console.log("i am clearing all high Scores")
     window.localStorage.removeItem("highscores");
     window.location.reload();
 }
+
+clearBtn.addEventListener("click", clearHighScores)
 
 // run on startup
 printHighScore();
