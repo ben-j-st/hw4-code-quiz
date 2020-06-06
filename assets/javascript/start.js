@@ -13,6 +13,7 @@ var startBtn = document.getElementById("start")
 var submitBtn = document.getElementById("submit");
 var titleEL = document.getElementById("question-title")
 var scoreEl = document.getElementById("score");
+var feedbackEl = document.getElementById("feedback");
 
 // sound effect
 var sfxRight = new Audio("assets/sfx/correct.mp3");
@@ -80,6 +81,8 @@ var questionClick = function() {
         // play wrong sound effects
         sfxWrong.play();
 
+        feedbackEl.textContent = "Wrong!";
+
         // alert user they were wrong on page somehow
     } else {
         sfxRight.play();
@@ -87,7 +90,15 @@ var questionClick = function() {
         score = score + 10;
         // alert user they were right
         scoreEl.textContent = score;
+
+        feedbackEl.textContent = "Correct!";
     }
+
+      // flash right/wrong feedback on page for half a second
+    feedbackEl.setAttribute("class", "feedback");
+    setTimeout(function() {
+        feedbackEl.setAttribute("class", "feedback hide");
+    }, 1000);
 
     // move onto the next question
     currentQuestionIndex++;
