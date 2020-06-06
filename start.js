@@ -10,16 +10,123 @@ var questionsEl = document.getElementById("questions");
 var choicesEl = document.getElementById("choices");
 var initialsEl = document.getElementById("initials");
 var submitBtn = document.getElementById("submit");
+var titleEL = document.getElementById("question-title")
+var scoreEl = document.getElementById("score");
+
+// sound effect
+var sfxRight = new Audio(assets/sfx/correct.mp3);
+var sfxWrong = new Audio(assets/sfx/incorrect.mp3);
 
 
-// used to test score ---- need to remove at end
-// var score = 30;
+var startQuiz = function() {
+    var startScreenEl = document.getElementById("start-screen");
+    startScreenEl.setAttribute("class", "hide");
+
+    // un-hide questions section
+    questionsEl.removeAttribute("class");
+    
+    // start timer
+    timerId = setInterval(tikTock, 1000);
+
+    // show starting time
+    timerEl.textContent = time;
+
+    // run function to get questions
+    getQuestions();
+}
+
+var getQuestions = function() {
+    // get current question object from array
+    var currentQuestion = questions[currentQuestionIndex];
+
+    // update title to reflect current question
+    titleEL.textContent = currentQuestion.title;
+
+    //clear our any old choices
+    choicesEl.innerHTML = "";
+
+    // create a forEach to create elements for each choice
+    currentQuestion.choices.forEach(function(choice, index) {
+        var choiceBtn = document.createElement("button");
+        choiceBtn.addClass("choice");
+        choiceBtn.setAttribute("value", choice);
+
+        choiceBtn.textContent = index + 1 + ". " + choice;
+
+        // attach click event to each button
+        choiceBtn.addEventListener("click", questionClick);
+
+        // display on page
+        choicesEl.appendChild(choiceBtn);
+    })
+}
+
+var questionClick = function() {
+    // check if user guessed wrong
+    if (this.value !== questions[currentQuestionIndex].answer) {
+        time-= 10;
+        score -= 5;
+
+        if ( time < 0) {
+            time = 0;
+        }
+
+        // display new time on page
+        timerEl.textContent = time;
+
+        // play wrong sound effects
+        sfxWrong.play();
+
+        // alert user they were wrong on page somehow
+    } else {
+        sfxRight.play();
+        // add 10 points to score
+        score = score + 10;
+        // alert user they were right
+        scoreEl.textContent = score;
+    }
+
+    // move onto the next question
+    currentQuestionIndex++;
+
+    // run check to see if run out of questions
+    if (currentQuestionIndex === questions.length) {
+        quizEnd();
+    } else {
+        getQuestions();
+    }
+}
+
+var quizEnd = function() {
+    // stop interval timer
+    clearInterval(timerId);
+
+    // show end screen
+    var endScreenEl = document.getElementById("end-screen");
+
+    //show final score
+    var finalScoreEl = document.getElementById('final-score');
+    finalScoreEl.textContent = score;
+
+    // hide questions section
+    questionsEl.addClass("hide");
+}
+
+var tikTock = function() {
+    //update time
+    time--;
+    timerEl.textContent = time;
+
+    //  check if user has run out of time
+    if (time <= 0) {
+        quizEnd();
+    }
+}
 
 var saveHighScore = function() {
     console.log("i am saving highscores");
 
-  
-
+    //trimming initials, text box only allows 3 characters
     var initials = initialsEl.value.trim();
 
     if (initials !== "") {
@@ -37,8 +144,8 @@ var saveHighScore = function() {
         highscores.push(newScore);
         window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
-        //used while testing - for clearing the text from the input box
-        // initialsEl.value = ""
+        // redirect to highscores after user enters there data 
+        window.location.href = "highscore.html"
     }
 }
 
