@@ -1,9 +1,19 @@
-var initialsEl = document.getElementById("initials");
-var olEl = document.getElementById("ol-scores");
-var submitBtn = document.getElementById("submit");
-var clearBtn = document.getElementById("clear");
+// variables for keeping track of quiz
+var currentQuestionIndex = 0;
+var time = questions.length * 10;
+var timerId;
+var score = 0;
 
-var score = 30;
+// variables for interacting with html  
+var timerId = document.getElementById("time")
+var questionsEl = document.getElementById("questions");
+var choicesEl = document.getElementById("choices");
+var initialsEl = document.getElementById("initials");
+var submitBtn = document.getElementById("submit");
+
+
+// used to test score ---- need to remove at end
+// var score = 30;
 
 var saveHighScore = function() {
     console.log("i am saving highscores");

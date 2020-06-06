@@ -2,13 +2,21 @@ body {
     font-size: 120%;
 }
 
-.scores {
+.highscores {
     position: absolute;
     top: 10px;
     left: 10px;
 }
 
+.score {
+    color: darkblue;
+    position: absolute;
+    top: 10px;
+    left: 47%;
+}
+
 .timer {
+    color: darkblue;
     position: absolute;
     top: 10px;
     right: 10px;

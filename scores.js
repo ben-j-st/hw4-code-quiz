@@ -1,4 +1,5 @@
-
+var clearBtn = document.getElementById("clear");
+var olEl = document.getElementById("ol-scores");
 
 var printHighScore = function() {
     console.log("i am printing high scores");
