@@ -12,7 +12,7 @@ var questions = [
   },
   {
     title: "What tag is required in all HTML documents, and is used to define the title?",
-    choices: ["<body></body", "<title></title>", "<head></head>", "<br></br>"],
+    choices: ["<body>", "<title>", "<head>", "<br>"],
     answer: "<title>"
   },
   {
@@ -22,8 +22,8 @@ var questions = [
   },
   {
     title: "What is the element called that forms a search pattern out of a sequence of characters?",
-    choices: ["RegExp or Regular Expression", "Conditional Argument", "Boolean Variable", "Event"],
-    answer: "RegExp or Regular Expression"
+    choices: ["Regular Expression", "Conditional Argument", "Boolean Variable", "Event"],
+    answer: "Regular Expression"
   },
   {
     title: "What is the name of the object that allows you to perform mathematical tasks with the interpreter?",
