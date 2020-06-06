@@ -1,21 +1,22 @@
 // variables for keeping track of quiz
 var currentQuestionIndex = 0;
-var time = questions.length * 10;
+var time = (questions.length) * 10;
 var timerId;
 var score = 0;
 
 // variables for interacting with html  
-var timerId = document.getElementById("time")
+var timerEl = document.getElementById("time")
 var questionsEl = document.getElementById("questions");
 var choicesEl = document.getElementById("choices");
 var initialsEl = document.getElementById("initials");
+var startBtn = document.getElementById("start")
 var submitBtn = document.getElementById("submit");
 var titleEL = document.getElementById("question-title")
 var scoreEl = document.getElementById("score");
 
 // sound effect
-var sfxRight = new Audio(assets/sfx/correct.mp3);
-var sfxWrong = new Audio(assets/sfx/incorrect.mp3);
+var sfxRight = new Audio("assets/sfx/correct.mp3");
+var sfxWrong = new Audio("assets/sfx/incorrect.mp3");
 
 
 var startQuiz = function() {
@@ -33,6 +34,8 @@ var startQuiz = function() {
 
     // run function to get questions
     getQuestions();
+
+    console.log(time)
 }
 
 var getQuestions = function() {
@@ -48,7 +51,7 @@ var getQuestions = function() {
     // create a forEach to create elements for each choice
     currentQuestion.choices.forEach(function(choice, index) {
         var choiceBtn = document.createElement("button");
-        choiceBtn.addClass("choice");
+        choiceBtn.setAttribute("class", "choice");
         choiceBtn.setAttribute("value", choice);
 
         choiceBtn.textContent = index + 1 + ". " + choice;
@@ -109,7 +112,7 @@ var quizEnd = function() {
     finalScoreEl.textContent = score;
 
     // hide questions section
-    questionsEl.addClass("hide");
+    questionsEl.setAttribute("class", "hide");
 }
 
 var tikTock = function() {
@@ -160,6 +163,9 @@ var checkForEnter = function(event) {
 
 //if user clicks submit run function
 submitBtn.addEventListener("click", saveHighScore);
+
+// user clicks the start button, run start function
+startBtn.addEventListener("click", startQuiz)
 
 // onkeyup to only run once the key is released
 initialsEl.onkeyup = checkForEnter;
